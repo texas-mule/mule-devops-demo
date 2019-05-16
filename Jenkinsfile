@@ -3,9 +3,6 @@ pipeline {
 	environment {
 		ANYPOINT = credentials('ANYPOINT')
 	}
-	tools {
-		maven 'maven3'
-	}
 	stages {
 		stage ('Package') {
 			steps {
