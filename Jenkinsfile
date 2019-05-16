@@ -3,19 +3,18 @@ pipeline {
 	environment {
 		ANYPOINT = credentials('ANYPOINT')
 	}
+	tools {
+		maven 'Maven 3.6.0'
+	}
 	stages {
 		stage ('Package') {
 			steps {
-				withMaven(maven:'maven3') {
-					sh 'mvn package'
-				}
+				sh 'mvn package'
 			}
 		}
 		stage ('Deploy') {
 			steps {
-				withMaven(maven:'maven3') {
-					sh 'mvn deploy -Duid=$ANYPOINT_USR -Dpwd=$ANYPOINT_PWD -Psandbox'
-				}
+				sh 'mvn deploy -Duid=$ANYPOINT_USR -Dpwd=$ANYPOINT_PSW -Psandbox'
 			}
 		}
 	}
