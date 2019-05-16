@@ -14,7 +14,7 @@ pipeline {
 		}
 		stage ('Deploy') {
 			steps {
-				bat 'mvn deploy -Duid=$ANYPOINT_USR -Dpwd=$ANYPOINT_PSW -Psandbox'
+				bat 'mvn deploy -Duid=${ANYPOINT_USR} -Dpwd=${ANYPOINT_PSW} -Psandbox'
 			}
 		}
 	}
