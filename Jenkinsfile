@@ -9,12 +9,12 @@ pipeline {
 	stages {
 		stage ('Package') {
 			steps {
-				sh 'mvn clean package'
+				bat 'mvn clean package'
 			}
 		}
 		stage ('Deploy') {
 			steps {
-				sh 'mvn deploy -Duid=$ANYPOINT_USR -Dpwd=$ANYPOINT_PSW -Psandbox'
+				bat 'mvn deploy -Duid=$ANYPOINT_USR -Dpwd=$ANYPOINT_PSW -Psandbox'
 			}
 		}
 	}
