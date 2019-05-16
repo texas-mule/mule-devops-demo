@@ -4,7 +4,7 @@ pipeline {
 		ANYPOINT = credentials('ANYPOINT')
 	}
 	tools {
-		maven 'Maven 3.6.0'
+		maven 'maven3'
 	}
 	stages {
 		stage ('Package') {
