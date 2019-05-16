@@ -6,16 +6,12 @@ pipeline {
 	stages {
 		stage ('Package') {
 			steps {
-				withEnv(["MVN_HOME=$mvnHome"]) {
-				 	sh '"$MVN_HOME/bin/mvn" clean package'
-			      }
+				sh 'mvn clean package'
 			}
 		}
 		stage ('Deploy') {
 			steps {
-				withEnv(["MVN_HOME=$mvnHome"]) {
-					 sh '"$MVN_HOME/bin/mvn" deploy -Duid=$ANYPOINT_USR -Dpwd=$ANYPOINT_PSW -Psandbox'
-			      }
+				sh 'mvn deploy -Duid=$ANYPOINT_USR -Dpwd=$ANYPOINT_PSW -Psandbox'
 			}
 		}
 	}
